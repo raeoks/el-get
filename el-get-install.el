@@ -16,6 +16,8 @@
 ;; So the idea is that you copy/paste this code into your *scratch* buffer,
 ;; hit C-j, and you have a working el-get.
 
+;;; Code:
+
 (let ((el-get-root
        (file-name-as-directory
         (or (bound-and-true-p el-get-dir)
@@ -26,7 +28,7 @@
      'el-get
      (concat "Your Emacs doesn't support HTTPS (TLS)"
              (if (eq system-type 'windows-nt)
-                 ",\n  see https://github.com/dimitri/el-get/wiki/Installation-on-Windows."
+                 ",\n  see https://github.com/raeoks/el-get/wiki/Installation-on-Windows."
                "."))))
 
   (when (file-directory-p el-get-root)
@@ -43,7 +45,7 @@
            (git       (or (executable-find "git")
                           (error "Unable to find `git'")))
            (url       (or (bound-and-true-p el-get-git-install-url)
-                          "https://github.com/dimitri/el-get.git"))
+                          "https://github.com/raeoks/el-get.git"))
            (default-directory el-get-root)
            (process-connection-type nil)   ; pipe, no pty (--no-progress)
 
